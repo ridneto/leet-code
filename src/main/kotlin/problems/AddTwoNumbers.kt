@@ -18,16 +18,31 @@ class AddTwoNumbers {
             return result!!
         }
 
-        fun run(): ListNode? {
-            //AddTwoNumbers().addTwoNumbers(
-            //    make(intArrayOf(2, 4, 3)),
-            //    make(intArrayOf(5, 6, 4)),
-            //)
+        fun toString(l: ListNode?): String{
+            var headList = l
+            var r = ""
+            while(headList != null) {
+                r = "${headList.`val`}$r"
+                headList = headList.next
+            }
+            return r
+        }
 
-            return AddTwoNumbers().addTwoNumbers(
+        fun run() {
+            val one = AddTwoNumbers().addTwoNumbers(
+                make(intArrayOf(2, 4, 3)),
+                make(intArrayOf(5, 6, 4)),
+            )
+
+            println("one -> ${toString(one)}")
+
+            val two = AddTwoNumbers().addTwoNumbers(
                 make(intArrayOf(9,9,9,9,9,9,9)),
                 make(intArrayOf(9,9,9,9)),
             )
+
+            println("one -> ${toString(two)}")
+            ""
         }
     }
 
@@ -35,7 +50,38 @@ class AddTwoNumbers {
         var next: ListNode? = null
     }
 
-    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
+    fun addTwoNumbers(p1: ListNode?, p2: ListNode?): ListNode?{
+        var output: ListNode? = null
+        var head: ListNode? = null
+
+        var carry = 0
+        var l1 = p1
+        var l2 = p2
+
+        while(l1 != null || l2 != null) {
+            val sum = (l1?.`val` ?: 0) + (l2?.`val` ?: 0) + carry
+
+            if(output == null) {
+                output = ListNode(sum%10)
+                head = output
+            } else {
+                head!!.next = ListNode(sum%10)
+                head = head.next
+            }
+
+            carry = sum / 10
+            l1 = l1?.next
+            l2 = l2?.next
+        }
+
+        if(carry > 0) {
+            head!!.next = ListNode(carry)
+        }
+
+        return output
+    }
+
+    fun oldAddTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
         fun makeStr(l: ListNode?): String{
             var headList = l
             var r = ""
