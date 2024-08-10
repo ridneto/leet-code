@@ -13,4 +13,18 @@ class TwoSum {
 
         return intArrayOf()
     }
+
+    fun otherTwoSum(nums: IntArray, target: Int): IntArray {
+        val mapValues = hashMapOf<Int, Int>()
+
+        nums.forEachIndexed { index, number ->
+            val c = target - number
+            mapValues[c]?.let {
+                return intArrayOf(index, it)
+            }
+            mapValues[number] = index
+        }
+
+        return intArrayOf()
+    }
 }
