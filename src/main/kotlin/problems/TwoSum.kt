@@ -1,6 +1,14 @@
 package com.ridneto.problems
 
 class TwoSum {
+
+    companion object {
+        fun test(){
+            val b = TwoSum().twoSum(intArrayOf(9,5,1234,402394,230), 239)
+            val c = ""
+        }
+    }
+
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val mapValues = hashMapOf<Int, Int>()
 
