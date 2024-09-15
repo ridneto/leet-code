@@ -4,5 +4,5 @@ import com.ridneto.problems.*
 
 fun main() {
     println("Hello World! Lets code?")
-    IntegerToRoman().intToRoman(1994)
+    CountConsistentStrings().countConsistentStrings("cad", arrayOf("cc","acd","b","ba","bac","bad","ac","d"))
 }
