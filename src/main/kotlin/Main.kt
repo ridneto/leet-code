@@ -1,11 +1,8 @@
 package com.ridneto
 
-import com.ridneto.problems.AddTwoNumbers
-import com.ridneto.problems.GasStation
-import com.ridneto.problems.PascalsTriangle
-import com.ridneto.problems.RomanToInteger
+import com.ridneto.problems.*
 
 fun main() {
     println("Hello World! Lets code?")
-    RomanToInteger().romanToInt("MCMXCIV")
+    IntegerToRoman().intToRoman(1994)
 }
